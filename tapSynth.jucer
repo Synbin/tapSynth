@@ -4,6 +4,11 @@
               addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn"
               cppLanguageStandard="17" displaySplashScreen="1">
   <MAINGROUP id="KMptmw" name="tapSynth">
+    <GROUP id="{F55005A5-34DC-8E1D-81AF-3C5336F70EF0}" name="res">
+      <FILE id="owUEX6" name="greyKnob.png" compile="0" resource="1" file="res/greyKnob.png"/>
+      <FILE id="vkSBH3" name="orangeKnob.png" compile="0" resource="1" file="res/orangeKnob.png"/>
+      <FILE id="lPPAf9" name="redKnob.png" compile="0" resource="1" file="res/redKnob.png"/>
+    </GROUP>
     <GROUP id="{3C4B8AF0-CC1B-B776-74F0-C1D0B8E63F93}" name="Source">
       <FILE id="cCsQG0" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>

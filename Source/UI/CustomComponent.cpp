@@ -16,13 +16,27 @@
 using SliderAttachment = juce::AudioProcessorValueTreeState::SliderAttachment;
 using SliderStyle = juce::Slider::SliderStyle;
 
-SliderWithLabel::SliderWithLabel (juce::String labelName, juce::String paramId, juce::AudioProcessorValueTreeState& apvts, const int width, const int height, SliderStyle style)
+SliderWithLabel::SliderWithLabel (juce::String labelName, juce::String paramId, juce::AudioProcessorValueTreeState& apvts, const int width, const int height, SliderStyle style, KnobColour knobColour)
 {
     sliderWidth = width;
     sliderHeight = height;
     
     slider.setSliderStyle (style);
     slider.setTextBoxStyle (juce::Slider::TextBoxBelow, true, textBoxWidth, textBoxHeight);
+    switch (knobColour) {
+        case KnobColour::RED:
+            slider.setLookAndFeel(&redKnob);
+            break;
+        case KnobColour::GREY:
+            slider.setLookAndFeel(&greyKnob);
+            break;
+        case KnobColour::ORANGE:
+            slider.setLookAndFeel(&orangeKnob);
+            break;
+        default:
+            jassertfalse;
+            break;
+    }
     addAndMakeVisible (slider);
     
     label.setFont (fontHeight);

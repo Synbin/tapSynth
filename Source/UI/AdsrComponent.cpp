@@ -13,10 +13,10 @@
 
 //==============================================================================
 AdsrComponent::AdsrComponent (juce::AudioProcessorValueTreeState& apvts, juce::String attackId, juce::String decayId, juce::String sustainId, juce::String releaseId)
-: attack ("A", attackId, apvts, sliderWidth, sliderHeight, juce::Slider::SliderStyle::LinearVertical)
-, decay ("D", decayId, apvts, sliderWidth, sliderHeight, juce::Slider::SliderStyle::LinearVertical)
-, sustain ("S", sustainId, apvts, sliderWidth, sliderHeight, juce::Slider::SliderStyle::LinearVertical)
-, release ("R", releaseId, apvts, sliderWidth, sliderHeight, juce::Slider::SliderStyle::LinearVertical)
+: attack ("A", attackId, apvts, sliderWidth, sliderHeight, juce::Slider::SliderStyle::LinearVertical, KnobColour::GREY)
+, decay ("D", decayId, apvts, sliderWidth, sliderHeight, juce::Slider::SliderStyle::LinearVertical, KnobColour::GREY)
+, sustain ("S", sustainId, apvts, sliderWidth, sliderHeight, juce::Slider::SliderStyle::LinearVertical, KnobColour::GREY)
+, release ("R", releaseId, apvts, sliderWidth, sliderHeight, juce::Slider::SliderStyle::LinearVertical, KnobColour::GREY)
 {
     addAndMakeVisible (attack);
     addAndMakeVisible (decay);

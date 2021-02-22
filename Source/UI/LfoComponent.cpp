@@ -13,8 +13,8 @@
 
 //==============================================================================
 LfoComponent::LfoComponent (juce::AudioProcessorValueTreeState& apvts, juce::String lfoFreqId, juce::String lfoDepthId)
-: lfoFreq ("LFO Freq", lfoFreqId, apvts, dialWidth, dialHeight)
-, lfoDepth ("LFO Depth", lfoDepthId, apvts, dialWidth, dialHeight)
+: lfoFreq ("LFO Freq", lfoFreqId, apvts, dialWidth, dialHeight, juce::Slider::SliderStyle::RotaryVerticalDrag, KnobColour::RED)
+, lfoDepth ("LFO Depth", lfoDepthId, apvts, dialWidth, dialHeight, juce::Slider::SliderStyle::RotaryVerticalDrag, KnobColour::RED)
 {
     addAndMakeVisible (lfoFreq);
     addAndMakeVisible (lfoDepth);

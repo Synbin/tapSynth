@@ -5,12 +5,16 @@
     Created: 20 Feb 2021 9:51:27am
     Author:  Joshua Hodge
 
+    22-Feb-21: Added custom coloured knobs (JS)
+
   ==============================================================================
 */
 
 #pragma once
 
 #include <JuceHeader.h>
+
+#include "LookAndFeel.h"
 
 //==============================================================================
 /*
@@ -24,7 +28,8 @@ public:
     using SliderAttachment = juce::AudioProcessorValueTreeState::SliderAttachment;
     using SliderStyle = juce::Slider::SliderStyle;
     
-    SliderWithLabel (juce::String labelName, juce::String paramId, juce::AudioProcessorValueTreeState& apvts, const int width, const int height, SliderStyle style = SliderStyle::RotaryHorizontalVerticalDrag);
+    SliderWithLabel (juce::String labelName, juce::String paramId, juce::AudioProcessorValueTreeState& apvts, 
+        const int width, const int height, SliderStyle style, KnobColour knobColour);
         
     void resized() override;
     
@@ -36,6 +41,11 @@ private:
     juce::Slider slider;
     juce::Label label;
     std::unique_ptr<SliderAttachment> attachment;
+
+    // Coloured knobs
+    RedKnob redKnob;
+    GreyKnob greyKnob;
+    OrangeKnob orangeKnob;
 };
 
 class CustomComponent  : public juce::Component

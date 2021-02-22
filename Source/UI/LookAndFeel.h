@@ -16,6 +16,8 @@
 #define KNOB_WIDTH 64
 #define KNOB_HEIGHT 64
 
+enum class KnobColour { RED, GREY, ORANGE };
+
 class GreyKnob : public juce::LookAndFeel_V4
 {
 public:

@@ -43,6 +43,7 @@
         <FILE id="qBZMwg" name="LfoComponent.cpp" compile="1" resource="0"
               file="Source/UI/LfoComponent.cpp"/>
         <FILE id="wCLCyX" name="LfoComponent.h" compile="0" resource="0" file="Source/UI/LfoComponent.h"/>
+        <FILE id="sUniOA" name="LookAndFeel.h" compile="0" resource="0" file="Source/UI/LookAndFeel.h"/>
         <FILE id="u3IlwZ" name="OscComponent.cpp" compile="1" resource="0"
               file="Source/UI/OscComponent.cpp"/>
         <FILE id="HofuLH" name="OscComponent.h" compile="0" resource="0" file="Source/UI/OscComponent.h"/>

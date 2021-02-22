@@ -13,12 +13,12 @@
 
 //==============================================================================
 ReverbComponent::ReverbComponent (juce::AudioProcessorValueTreeState& apvts, juce::String sizeId, juce::String dampingId, juce::String widthId, juce::String dryId, juce::String wetId, juce::String freezeId)
-: size ("Size", sizeId, apvts, dialWidth, dialHeight, juce::Slider::SliderStyle::RotaryVerticalDrag, KnobColour::GREY)
-, damping ("Damping", dampingId, apvts, dialWidth, dialHeight, juce::Slider::SliderStyle::RotaryVerticalDrag, KnobColour::GREY)
-, stereoWidth ("Width", widthId, apvts, dialWidth, dialHeight, juce::Slider::SliderStyle::RotaryVerticalDrag, KnobColour::GREY)
-, dry ("Dry", dryId, apvts, dialWidth, dialHeight, juce::Slider::SliderStyle::RotaryVerticalDrag, KnobColour::GREY)
-, wet ("Wet", wetId, apvts, dialWidth, dialHeight, juce::Slider::SliderStyle::RotaryVerticalDrag, KnobColour::GREY)
-, freeze ("Freeze", freezeId, apvts, dialWidth, dialHeight, juce::Slider::SliderStyle::RotaryVerticalDrag, KnobColour::GREY)
+: size ("Size", sizeId, apvts, dialWidth, dialHeight, KnobColour::GREY)
+, damping ("Damping", dampingId, apvts, dialWidth, dialHeight, KnobColour::GREY)
+, stereoWidth ("Width", widthId, apvts, dialWidth, dialHeight, KnobColour::GREY)
+, dry ("Dry", dryId, apvts, dialWidth, dialHeight, KnobColour::GREY)
+, wet ("Wet", wetId, apvts, dialWidth, dialHeight, KnobColour::GREY)
+, freeze ("Freeze", freezeId, apvts, dialWidth, dialHeight, KnobColour::GREY)
 {
     addAndMakeVisible (size);
     addAndMakeVisible (damping);

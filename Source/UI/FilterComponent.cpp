@@ -13,8 +13,8 @@
 
 //==============================================================================
 FilterComponent::FilterComponent (juce::AudioProcessorValueTreeState& apvts, juce::String filterTypeId, juce::String cutoffId, juce::String resonanceId)
-: cutoff ("Cutoff", cutoffId, apvts, dialWidth, dialHeight, juce::Slider::SliderStyle::RotaryVerticalDrag, KnobColour::RED)
-, resonance ("Resonance", resonanceId, apvts, dialWidth, dialHeight, juce::Slider::SliderStyle::RotaryVerticalDrag, KnobColour::RED)
+: cutoff ("Cutoff", cutoffId, apvts, dialWidth, dialHeight, KnobColour::RED)
+, resonance ("Resonance", resonanceId, apvts, dialWidth, dialHeight, KnobColour::RED)
 {
     juce::StringArray filterTypeChoices { "Low Pass", "Band Pass", "High Pass" };
     filterTypeSelector.addItemList (filterTypeChoices, 1);

@@ -16,7 +16,8 @@
 using SliderAttachment = juce::AudioProcessorValueTreeState::SliderAttachment;
 using SliderStyle = juce::Slider::SliderStyle;
 
-SliderWithLabel::SliderWithLabel (juce::String labelName, juce::String paramId, juce::AudioProcessorValueTreeState& apvts, const int width, const int height, SliderStyle style, KnobColour knobColour)
+SliderWithLabel::SliderWithLabel (juce::String labelName, juce::String paramId, juce::AudioProcessorValueTreeState& apvts, const int width, const int height, 
+    KnobColour knobColour, SliderStyle style)
 {
     sliderWidth = width;
     sliderHeight = height;

@@ -29,7 +29,7 @@ public:
     using SliderStyle = juce::Slider::SliderStyle;
     
     SliderWithLabel (juce::String labelName, juce::String paramId, juce::AudioProcessorValueTreeState& apvts, 
-        const int width, const int height, SliderStyle style, KnobColour knobColour);
+        const int width, const int height, KnobColour knobColour, SliderStyle style = SliderStyle::RotaryHorizontalVerticalDrag);
         
     void resized() override;
     

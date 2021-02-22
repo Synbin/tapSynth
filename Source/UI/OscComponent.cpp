@@ -13,10 +13,10 @@
 
 //==============================================================================
 OscComponent::OscComponent (juce::AudioProcessorValueTreeState& apvts, juce::String oscId, juce::String gainId, juce::String pitchId, juce::String fmFreqId, juce::String fmDepthId)
-: gain ("Gain", gainId, apvts, dialWidth, dialHeight, juce::Slider::SliderStyle::RotaryVerticalDrag, KnobColour::ORANGE)
-, pitch ("Pitch", pitchId, apvts, dialWidth, dialHeight, juce::Slider::SliderStyle::RotaryVerticalDrag, KnobColour::ORANGE)
-, fmFreq ("FM Freq", fmFreqId, apvts, dialWidth, dialHeight, juce::Slider::SliderStyle::RotaryVerticalDrag, KnobColour::ORANGE)
-, fmDepth ("FM Depth", fmDepthId, apvts, dialWidth, dialHeight, juce::Slider::SliderStyle::RotaryVerticalDrag, KnobColour::ORANGE)
+: gain ("Gain", gainId, apvts, dialWidth, dialHeight, KnobColour::ORANGE)
+, pitch ("Pitch", pitchId, apvts, dialWidth, dialHeight, KnobColour::ORANGE)
+, fmFreq ("FM Freq", fmFreqId, apvts, dialWidth, dialHeight, KnobColour::ORANGE)
+, fmDepth ("FM Depth", fmDepthId, apvts, dialWidth, dialHeight, KnobColour::ORANGE)
 {
     juce::StringArray oscChoices { "Sine", "Saw", "Square" };
     oscSelector.addItemList (oscChoices, 1);

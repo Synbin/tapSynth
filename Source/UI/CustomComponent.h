@@ -28,24 +28,30 @@ public:
     using SliderAttachment = juce::AudioProcessorValueTreeState::SliderAttachment;
     using SliderStyle = juce::Slider::SliderStyle;
     
-    SliderWithLabel (juce::String labelName, juce::String paramId, juce::AudioProcessorValueTreeState& apvts, 
+    // Constructor for coloured rotary knob
+    SliderWithLabel(juce::String labelName, juce::String paramId, juce::AudioProcessorValueTreeState& apvts,
         const int width, const int height, KnobColour knobColour, SliderStyle style = SliderStyle::RotaryHorizontalVerticalDrag);
-        
+
+    // Constructor for linear slider (ADSR)
+    SliderWithLabel(juce::String labelName, juce::String paramId, juce::AudioProcessorValueTreeState& apvts,
+        const int width, const int height, SliderStyle style = SliderStyle::RotaryVerticalDrag);
+
     void resized() override;
     
 private:
-    static constexpr int textBoxWidth { 48 };
-    static constexpr int textBoxHeight { 20 };
+    static constexpr int textBoxWidth { 60 };
+    static constexpr int textBoxHeight { 18 };
     int sliderWidth { 0 };
     int sliderHeight { 0 };
     juce::Slider slider;
     juce::Label label;
     std::unique_ptr<SliderAttachment> attachment;
 
-    // Coloured knobs
+    // Coloured knobs and slider
     RedKnob redKnob;
     GreyKnob greyKnob;
     OrangeKnob orangeKnob;
+    SliderKnob sliderKnob;
 };
 
 class CustomComponent  : public juce::Component

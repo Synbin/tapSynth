@@ -16,48 +16,66 @@
 using SliderAttachment = juce::AudioProcessorValueTreeState::SliderAttachment;
 using SliderStyle = juce::Slider::SliderStyle;
 
-SliderWithLabel::SliderWithLabel (juce::String labelName, juce::String paramId, juce::AudioProcessorValueTreeState& apvts, const int width, const int height, 
+SliderWithLabel::SliderWithLabel(juce::String labelName, juce::String paramId, juce::AudioProcessorValueTreeState& apvts, const int width, const int height,
     KnobColour knobColour, SliderStyle style)
 {
     sliderWidth = width;
     sliderHeight = height;
-    
-    slider.setSliderStyle (style);
-    slider.setTextBoxStyle (juce::Slider::TextBoxBelow, true, textBoxWidth, textBoxHeight);
+
+    slider.setSliderStyle(style);
+    slider.setTextBoxStyle(juce::Slider::TextBoxBelow, true, textBoxWidth, textBoxHeight);
     switch (knobColour) {
-        case KnobColour::RED:
-            slider.setLookAndFeel(&redKnob);
-            break;
-        case KnobColour::GREY:
-            slider.setLookAndFeel(&greyKnob);
-            break;
-        case KnobColour::ORANGE:
-            slider.setLookAndFeel(&orangeKnob);
-            break;
-        default:
-            jassertfalse;
-            break;
+    case KnobColour::RED:
+        slider.setLookAndFeel(&redKnob);
+        break;
+    case KnobColour::GREY:
+        slider.setLookAndFeel(&greyKnob);
+        break;
+    case KnobColour::ORANGE:
+        slider.setLookAndFeel(&orangeKnob);
+        break;
+    default:
+        jassertfalse;
+        break;
     }
-    addAndMakeVisible (slider);
-    
-    label.setFont (fontHeight);
-    label.setText (labelName, juce::dontSendNotification);
-    label.setJustificationType (juce::Justification::centred);
-    addAndMakeVisible (label);
-    
-    attachment = std::make_unique<SliderAttachment>(apvts,  paramId,  slider);
+    addAndMakeVisible(slider);
+
+    label.setFont(fontHeight);
+    label.setText(labelName, juce::dontSendNotification);
+    label.setJustificationType(juce::Justification::centred);
+    addAndMakeVisible(label);
+
+    attachment = std::make_unique<SliderAttachment>(apvts, paramId, slider);
+}
+
+SliderWithLabel::SliderWithLabel(juce::String labelName, juce::String paramId, juce::AudioProcessorValueTreeState& apvts, const int width, const int height, SliderStyle style)
+{
+    sliderWidth = width;
+    sliderHeight = height;
+
+    slider.setSliderStyle(style);
+    slider.setTextBoxStyle(juce::Slider::TextBoxBelow, true, textBoxWidth, textBoxHeight);
+    slider.setLookAndFeel(&sliderKnob);
+    addAndMakeVisible(slider);
+
+    label.setFont(fontHeight);
+    label.setText(labelName, juce::dontSendNotification);
+    label.setJustificationType(juce::Justification::centred);
+    addAndMakeVisible(label);
+
+    attachment = std::make_unique<SliderAttachment>(apvts, paramId, slider);
 }
 
 void SliderWithLabel::resized()
 {
-    const auto dialToLabelRatio = 15;
+    const auto dialToLabelRatio = 25;
     const auto labelHeight = 18;
     
     jassert (sliderWidth > 0);
     jassert (sliderHeight > 0);
     
     label.setBounds (0, 0, sliderWidth, labelHeight);
-    slider.setBounds (0, 0 + dialToLabelRatio, sliderWidth, sliderHeight);
+    slider.setBounds (0, dialToLabelRatio, sliderWidth, sliderHeight);
 }
 
 
@@ -65,7 +83,6 @@ CustomComponent::CustomComponent()
 {
     // In your constructor, you should add any child components, and
     // initialise any special settings that your component needs.
-
 }
 
 CustomComponent::~CustomComponent()

@@ -33,10 +33,10 @@ FilterComponent::~FilterComponent()
 
 void FilterComponent::resized()
 {
-    const auto startX = 18;
+    const auto startX = 20;
     const auto startY = 80;
-    const auto width = 70;
-    const auto height = 88;
+    const auto width = 90;
+    const auto height = 120;
     
     filterTypeSelector.setBounds (18, 40, 145, 25);
     cutoff.setBounds (startX, startY, width, height);

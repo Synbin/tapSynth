@@ -34,7 +34,7 @@ TapSynthAudioProcessorEditor::TapSynthAudioProcessorEditor (TapSynthAudioProcess
     filter.setName ("Filter");
     lfo1.setName ("Filter LFO");
     filterAdsr.setName ("Filter ADSR");
-    adsr.setName ("ADSR");
+    adsr.setName ("Output ADSR");
     
     auto oscColour = juce::Colour::fromRGB (247, 190, 67);
     auto filterColour = juce::Colour::fromRGB (246, 87, 64);
@@ -46,7 +46,7 @@ TapSynthAudioProcessorEditor::TapSynthAudioProcessorEditor (TapSynthAudioProcess
     filter.setBoundsColour (filterColour);
     lfo1.setBoundsColour (filterColour);
         
-    setSize (1080, 525);
+    setSize (1100, 600);
 }
 
 TapSynthAudioProcessorEditor::~TapSynthAudioProcessorEditor()
@@ -61,15 +61,16 @@ void TapSynthAudioProcessorEditor::paint (juce::Graphics& g)
 
 void TapSynthAudioProcessorEditor::resized()
 {
-    const auto oscWidth = 420;
+    const auto oscWidth = 430;
     const auto oscHeight = 180;
+
     osc1.setBounds (0, 0, oscWidth, oscHeight);
     osc2.setBounds (0, osc1.getBottom(), oscWidth, oscHeight);
-    filter.setBounds (osc1.getRight(), 0, 180, 200);
-    lfo1.setBounds (osc2.getRight(), filter.getBottom(), 180, 160);
-    filterAdsr.setBounds (filter.getRight(), 0, 230, 360);
-    adsr.setBounds (filterAdsr.getRight(), 0, 230, 360);
-    reverb.setBounds (0, osc2.getBottom(), oscWidth, 150);
+    filter.setBounds (osc1.getRight(), 0, 200, 230);
+    lfo1.setBounds (osc2.getRight(), filter.getBottom(), 200, 180);
+    filterAdsr.setBounds (filter.getRight(), 0, 230, 230);
+    adsr.setBounds (filterAdsr.getRight(), 0, 230, 230);
+    reverb.setBounds (0, osc2.getBottom(), oscWidth, oscHeight);
 }
 
 

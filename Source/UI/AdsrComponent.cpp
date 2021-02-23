@@ -13,10 +13,10 @@
 
 //==============================================================================
 AdsrComponent::AdsrComponent (juce::AudioProcessorValueTreeState& apvts, juce::String attackId, juce::String decayId, juce::String sustainId, juce::String releaseId)
-: attack ("A", attackId, apvts, sliderWidth, sliderHeight, KnobColour::GREY, juce::Slider::SliderStyle::LinearVertical)
-, decay ("D", decayId, apvts, sliderWidth, sliderHeight, KnobColour::GREY, juce::Slider::SliderStyle::LinearVertical)
-, sustain ("S", sustainId, apvts, sliderWidth, sliderHeight, KnobColour::GREY, juce::Slider::SliderStyle::LinearVertical)
-, release ("R", releaseId, apvts, sliderWidth, sliderHeight, KnobColour::GREY, juce::Slider::SliderStyle::LinearVertical)
+: attack ("A", attackId, apvts, sliderWidth, sliderHeight)
+, decay  ("D", decayId, apvts, sliderWidth, sliderHeight)
+, sustain ("S", sustainId, apvts, sliderWidth, sliderHeight)
+, release ("R", releaseId, apvts, sliderWidth, sliderHeight)
 {
     addAndMakeVisible (attack);
     addAndMakeVisible (decay);
@@ -30,14 +30,14 @@ AdsrComponent::~AdsrComponent()
 
 void AdsrComponent::resized()
 {
-    const auto startX = 15;
-    const auto startY = 55;
-    const auto width = sliderWidth;
-    const auto height = sliderHeight + 20;
+    const auto startX = 25;
+    const auto startY = 45;
+    const auto width = 40;
+    const auto height = 160;
     
     attack.setBounds (startX, startY, width, height);
-    decay.setBounds (attack.getRight(), startY, width, height);
-    sustain.setBounds (decay.getRight(), startY, width, height);
-    release.setBounds (sustain.getRight(), startY, width, height);
+    decay.setBounds (attack.getRight() + sliderPadding, startY, width, height);
+    sustain.setBounds (decay.getRight() + sliderPadding, startY, width, height);
+    release.setBounds (sustain.getRight() + sliderPadding, startY, width, height);
 }
 

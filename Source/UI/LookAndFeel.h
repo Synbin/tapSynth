@@ -13,9 +13,6 @@
 
 #include <JuceHeader.h>
 
-#define KNOB_WIDTH 64
-#define KNOB_HEIGHT 64
-
 enum class KnobColour { RED, GREY, ORANGE };
 
 class GreyKnob : public juce::LookAndFeel_V4
@@ -31,14 +28,15 @@ public:
         float rotaryStartAngle, float rotaryEndAngle, juce::Slider& slider)
     {
         const double rotation = (slider.getValue() - slider.getMinimum()) / (slider.getMaximum() - slider.getMinimum());
-        const int numFrames = (knob.getHeight() / KNOB_WIDTH) - 1;
-        const int frameId = (int)ceil(rotation * (double)numFrames);
-
-        g.drawImage(knob, x, y, KNOB_WIDTH, KNOB_HEIGHT, 0, frameId * KNOB_HEIGHT, KNOB_WIDTH, KNOB_HEIGHT);
+        const int numFrames = (knob.getHeight() / knobWidth) - 1;
+        const int frameId = static_cast<int>(ceil(rotation * static_cast<double>(numFrames)));
+        g.drawImage(knob, x, y, knobWidth, knobHeight, 0, frameId * knobHeight, knobWidth, knobHeight);
     }
 
 private:
     juce::Image knob;
+    const int knobWidth = 64;
+    const int knobHeight = 64;
 };
 
 class RedKnob : public juce::LookAndFeel_V4
@@ -54,14 +52,15 @@ public:
         float rotaryStartAngle, float rotaryEndAngle, juce::Slider& slider)
     {
         const double rotation = (slider.getValue() - slider.getMinimum()) / (slider.getMaximum() - slider.getMinimum());
-        const int numFrames = (knob.getHeight() / KNOB_WIDTH) - 1;
-        const int frameId = (int)ceil(rotation * (double)numFrames);
-
-        g.drawImage(knob, x, y, KNOB_WIDTH, KNOB_HEIGHT, 0, frameId * KNOB_HEIGHT, KNOB_WIDTH, KNOB_HEIGHT);
+        const int numFrames = (knob.getHeight() / knobWidth) - 1;
+        const int frameId = static_cast<int>(ceil(rotation * static_cast<double>(numFrames)));
+        g.drawImage(knob, x, y, knobWidth, knobHeight, 0, frameId * knobHeight, knobWidth, knobHeight);
     }
 
 private:
     juce::Image knob;
+    const int knobWidth = 64;
+    const int knobHeight = 64;
 };
 
 class OrangeKnob : public juce::LookAndFeel_V4
@@ -77,14 +76,40 @@ public:
         float rotaryStartAngle, float rotaryEndAngle, juce::Slider& slider)
     {
         const double rotation = (slider.getValue() - slider.getMinimum()) / (slider.getMaximum() - slider.getMinimum());
-        const int numFrames = (knob.getHeight() / KNOB_WIDTH) - 1;
-        const int frameId = (int)ceil(rotation * (double)numFrames);
-
-        g.drawImage(knob, x, y, KNOB_WIDTH, KNOB_HEIGHT, 0, frameId * KNOB_HEIGHT, KNOB_WIDTH, KNOB_HEIGHT);
+        const int numFrames = (knob.getHeight() / knobWidth) - 1;
+        const int frameId = static_cast<int>(ceil(rotation * numFrames));
+        g.drawImage(knob, x, y, knobWidth, knobHeight, 0, frameId * knobHeight, knobWidth, knobHeight);
     }
 
 private:
     juce::Image knob;
+    const int knobWidth = 64;
+    const int knobHeight = 64;
+};
+
+class SliderKnob : public juce::LookAndFeel_V4
+{
+public:
+    SliderKnob()
+    {
+        knob = juce::ImageCache::getFromMemory(BinaryData::sliderKnob_png, BinaryData::sliderKnob_pngSize);
+    }
+
+    // ============================================================================================
+    void drawRotarySlider(juce::Graphics& g, int x, int y, int width, int height, float sliderPos,
+        float rotaryStartAngle, float rotaryEndAngle, juce::Slider& slider)
+    {
+        const double rotation = (slider.getValue() - slider.getMinimum()) / (slider.getMaximum() - slider.getMinimum());
+        const int numFrames = (knob.getHeight() / sliderHeight) - 1;
+        const int frameId = static_cast<int>(ceil(rotation * static_cast<double>(numFrames)));
+
+        g.drawImage(knob, x, y, sliderWidth, sliderHeight, 0, frameId * sliderHeight, sliderWidth, sliderHeight);
+    }
+
+private:
+    juce::Image knob;
+    const int sliderWidth = 32;
+    const int sliderHeight = 107;
 };
 
 #pragma warning ( default:4100 )

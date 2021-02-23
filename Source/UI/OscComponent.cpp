@@ -38,13 +38,13 @@ OscComponent::~OscComponent()
 
 void OscComponent::resized()
 {
-    const auto yStart = 15;
-    const auto width = 70;
-    const auto height = 88;
-    
+    const auto yStart = 20;
+    const auto width = 90;
+    const auto height = 120;
+
     oscSelector.setBounds (18, 40, 100, 25);
-    gain.setBounds (120, yStart, width, height);
-    pitch.setBounds (190, yStart, width, height);
-    fmFreq.setBounds (260, yStart, width, height);
-    fmDepth.setBounds (330, yStart, width, height);
+    gain.setBounds (130, yStart, width, height);
+    pitch.setBounds (200, yStart, width, height);
+    fmFreq.setBounds (270, yStart, width, height);
+    fmDepth.setBounds (340, yStart, width, height);
 }

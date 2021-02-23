@@ -30,8 +30,9 @@ private:
     SliderWithLabel sustain;
     SliderWithLabel release;
     
-    static constexpr int sliderWidth = 50;
-    static constexpr int sliderHeight = 260;
-    
+    static constexpr int sliderWidth = 32;
+    static constexpr int sliderHeight = 130;
+    static constexpr int sliderPadding = 10;
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AdsrComponent)
 };

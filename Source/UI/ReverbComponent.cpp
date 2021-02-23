@@ -36,11 +36,12 @@ ReverbComponent::~ReverbComponent()
 
 void ReverbComponent::resized()
 {
+    const auto xStart = 22;
     const auto yStart = 40;
-    const auto width = 67;
-    const auto height = 88;
-    
-    size.setBounds (10, yStart, width, height);
+    const auto width = 64;
+    const auto height = 120;
+
+    size.setBounds (xStart, yStart, width, height);
     damping.setBounds (size.getRight(), yStart, width, height);
     stereoWidth.setBounds (damping.getRight(), yStart, width, height);
     dry.setBounds (stereoWidth.getRight(), yStart, width, height);

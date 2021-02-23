@@ -26,11 +26,11 @@ LfoComponent::~LfoComponent()
 
 void LfoComponent::resized()
 {
-    const auto width = 70;
-    const auto height = 88;
-    const auto startY = 40;
+    const auto yStart = 40;
+    const auto width = 90;
+    const auto height = 120;
         
-    lfoFreq.setBounds (18, startY, width, height);
-    lfoDepth.setBounds (90, startY, width, height);
+    lfoFreq.setBounds (20, yStart, width, height);
+    lfoDepth.setBounds (110, yStart, width, height);
 }
 
